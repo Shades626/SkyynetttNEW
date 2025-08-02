@@ -3,122 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SKYYNETT</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="fontawesome.min.css">
 </head>
 <body>
-    <!-- Navbar-->
-    <header class="navbar">
-        <div class="logo">
-            <img src="logo.jpg" alt="logo" />
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Services</a></li>
-        </ul>
 
-        <!-- theme toggle button -->
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar">
+    <div class="logo">
+        <img src="logo.jpg" alt="logo" />
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Services</a></li>
+    </ul>
 
-        <button id="themeToggle" class="theme-toggle">🌙</button>
-        <!-- Hamburger Menu -->
-        <div class="hamburger" id="hamburger">
-            <span class="bar top"></span>
-            <span class="bar middle"></span>
-            <span class="bar bottom"></span>
-        </div>
-    </header>
+    <!-- Theme toggle -->
+    <button id="themeToggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
 
-        <!-- Sidebar Menu -->
-        <div class="sidebar" id="sidebar">
-            <button class="close-btn" id="closeBtn">&times;</button>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Services</a></li>
-            </ul>
-        </div>
-        <!-- over lay -->
-         <div class="overlay" id="overlay"></div>
-    
-    <!-- Hero section -->
-     <section class="hero-shopping">
-        <div class="hero-shopping-container">
-          <div class="hero-text">
-            <h1>Discover Exclusive Wears and Merch</h1>
-            <p>From Limited edition figures to stylish apparel, uprage your wardrobe with nice and original outfits</p>
-            <div class="hero-buttons">
-              <a href="#" class="btn-primary">Shop Now</a>
-              <a href="#" class="btn-secondary">View Deals</a>
-            </div>
-          </div>
-          <div class="hero-image">
-            <img src="/logo.jpg" alt="Merch Banner">
-          </div>
-        </div>
-     </section>
-    <!--Categories-->
-    <section class="category-section">
-      <h2>Shop by Category</h2>
-      <div class="category-grid">
-        <div class="category-card">
-          <img src="/logo.jpg" alt="Tops">
-          <h3>Tops</h3>
-        </div>
-            <div class="category-card">
-          <img src="/logo.jpg" alt="Pants & Skirts">
-          <h3>Pants & Skirts</h3>
-        </div>
-            <div class="category-card">
-          <img src="/logo.jpg" alt="Gowns and Suits">
-          <h3>Gowns and Suits</h3>
-        </div>
-            <div class="category-card">
-          <img src="/logo.jpg" alt="Jewellry, Perfumes and accesorries">
-          <h3>Jewellry, Perfumes and accesorries</h3>
+    <!-- Cart button -->
+    <button id="cartBtn" class="cart-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCount" class="cart-count">0</span>
+    </button>
+
+  <!-- Desktop Buttons -->
+<div class="navbar-buttons desktop-only">
+  <button id="loginBtn" class="login-btn">
+      <i class="fas fa-user"></i> Login
+  </button>
+  <button id="showSignup" class="login-btn">
+      <i class="fas fa-user-plus"></i> Sign Up
+  </button>
+</div>
+    <!-- Hamburger Menu -->
+    <div class="hamburger" id="hamburger">
+        <span class="bar top"></span>
+        <span class="bar middle"></span>
+        <span class="bar bottom"></span>
+    </div>
+</header>
+
+
+<!-- ===================== SIDEBAR (Mobile Menu) ===================== -->
+<div class="sidebar" id="sidebar">
+    <button class="close-btn" id="closeSidebar">&times;</button>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+    <hr>
+    <div class="sidebar-buttons">
+      <div class="sidebar-buttons mobile-only">
+        <button id="sidebarLoginBtn" class="login-btn">
+            <i class="fas fa-user"></i> Login
+        </button>
+        <button id="sidebarSignupBtn" class="signup-btn">
+            <i class="fas fa-user-plus"></i> Sign Up
+        </button>
+    </div>
+        <button id="sidebarTheme"><i class="fas fa-adjust"></i> Toggle Theme</button>
+        <button id="sidebarLogout" style="display:none;"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+</div>
+
+
+<!-- ===================== CART SIDEBAR ===================== -->
+<div class="cart-sidebar" id="cartSidebar">
+    <button class="close-cart" id="closeCart">&times;</button>
+    <h2>Your Cart</h2>
+    <ul id="cartItems"></ul>
+    <div class="cart-footer">
+        <p>Total: $<span id="cartTotal">0.00</span></p>
+        <button id="checkoutBtn">Checkout</button>
+    </div>
+</div>
+
+
+<!-- ===================== LOGIN MODAL ===================== -->
+<div id="loginModal" class="login-modal">
+  <div class="login-box">
+      <span id="closeLogin" class="close-btn">&times;</span>
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button id="submitLogin">Login</button>
+      <p class="forgot-pass"><a href="#" id="forgotPassLink">Forgot Password?</a></p>
+      <div id="forgotPassForm" style="display:none;">
+          <input type="email" id="resetEmail" placeholder="Enter your email">
+          <button id="sendReset">Send Reset Link</button>
+      </div>
+  </div>
+</div>
+
+
+<!-- ===================== SIGN UP MODAL ===================== -->
+<div id="signupModal" class="login-modal">
+  <div class="login-box">
+      <span id="closeSignup" class="close-btn">&times;</span>
+      <h2>Create Account</h2>
+      <input type="text" id="signupUsername" placeholder="Username" required>
+      <input type="email" id="signupEmail" placeholder="Email" required>
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+      <button id="submitSignup">Sign Up</button>
+      <p>Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+  </div>
+</div>
+
+
+<!-- ===================== OVERLAY ===================== -->
+<div class="overlay" id="overlay"></div>
+
+
+<!-- ===================== HERO SECTION ===================== -->
+<section class="hero-shopping">
+    <div class="hero-shopping-container">
+      <div class="hero-text">
+        <h1>Discover Exclusive Devices and Gadgets</h1>
+        <p>From Affordable choices to Brand New selections to get the best, use our buttons below</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn-primary">Shop Now</a>
+          <a href="#" class="btn-secondary">View Deals</a>
         </div>
       </div>
-    </section>
-    <!-- Footer-->
-    <footer class="footer">
-        <div class="footer-overlay">
-          <div class="footer-content">
-            <div class="footer-logo">
-              <img src="/logo.jpg" alt="Logo" />
-              <p>Your brand slogan here</p>
-            </div>
-      
-            <div class="footer-links">
-              <a href="#">Home</a>
-              <a href="#">About</a>
-              <a href="#">Services</a>
-              <a href="#">Contact</a>
-            </div>
-      
-            <div class="footer-social">
-              <a href="#">🐦</a>
-              <a href="#">📘</a>
-              <a href="#">📸</a>
-            </div>
-      
-            <div class="footer-extras">
-              <select id="languageSelect">
-                <option value="en">🌐 English</option>
-                <option value="fr">🇫🇷 Français</option>
-                <option value="es">🇪🇸 Español</option>
-              </select>
-              <button id="backToTop">🔝 Back to Top</button>
-            </div>
-          </div>
-      
-          <div class="footer-bottom">
-            <p>&copy; 2025 Your Brand. All rights reserved.</p>
-          </div>
+      <div class="hero-image">
+        <img src="/logo.jpg" alt="Merch Banner">
+      </div>
+    </div>
+</section>
+
+
+<!-- ===================== CATEGORY SECTION ===================== -->
+<main>
+  <section id="categories">
+    <h2>Shop by Category</h2>
+    <div class="category-container">
+      <a href="#"><div class="category-card"><img src="/logo.jpg"><h3><i class="fas fa-mobile"></i> IPhones</h3></div></a>
+      <a href="#"><div class="category-card"><img src="/logo.jpg"><h3><i class="fas fa-mobile"></i> Samsung & Others</h3></div></a>
+      <a href="#"><div class="category-card"><img src="/logo.jpg"><h3><i class="fas fa-tablet-screen-button"></i> Ipads</h3></div></a>
+      <a href="#"><div class="category-card"><img src="/logo.jpg"><h3><i class="fas fa-laptop"></i> Laptops</h3></div></a>
+      <a href="#"><div class="category-card"><img src="/logo.jpg"><h3><i class="fas fa-gamepad"></i> Gaming Consoles</h3></div></a>
+      <a href="#"><div class="category-card"><img src="/logo.jpg"><h3><i class="fas fa-ring"></i> Smart Watch</h3></div></a>
+    </div>
+  </section>
+</main>
+
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+    <div class="footer-overlay">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/logo.jpg" alt="Logo" />
+          <p>Quality, affordable gadgets you can trust</p>
         </div>
-    </footer>
-      
-    <script src="script.js"></script>
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" id="whatsapp-icon"><i class="fa-brands fa-whatsapp fa-beat"></i></a>
+          <a href="#" id="fb-icon"><i class="fa-brands fa-facebook fa-beat"></i></a>
+          <a href="#" id="insta-icon"><i class="fa-brands fa-instagram fa-beat"></i></a>
+        </div>
+        <div class="footer-extras">
+          <select id="languageSelect">
+            <option value="en">🌐 English</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="es">🇪🇸 Español</option>
+          </select>
+          <button id="backToTop"><i class="fa-solid fa-arrow-up"></i> Back to Top</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SKYYNETT. All rights reserved.</p>
+      </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
+
