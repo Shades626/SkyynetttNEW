@@ -8,71 +8,90 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="all.min.css">
     <link rel="stylesheet" href="fontawesome.min.css">
+    <link rel="icon" type="image/png" href="skyynettlogo.png">
 </head>
 <body>
 
 <!-- ===================== NAVBAR ===================== -->
 <header class="navbar">
-    <div class="logo">
-        <img src="logo.jpg" alt="logo" />
+  <!-- Logo Section -->
+  <div class="logo">
+    <img src="skyynettlogo.png" alt="Logo">
+    <span class="brand-text">Skyynett</span>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links desktop-only">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Shop</a></li>
+    <li><a href="#">Categories</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <!-- Navbar Buttons -->
+  <div class="nav-buttons">
+    <!-- Search Icon -->
+    <div class="search-container desktop-only">
+      <button id="searchToggle" class="search-icon"><i class="fas fa-search"></i></button>
+      <div id="searchDropdown" class="search-dropdown">
+        <input type="text" id="searchInput" placeholder="Search..." />
+        <button id="searchBtn"><i class="fas fa-arrow-right"></i></button>
+      </div>
     </div>
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Services</a></li>
-    </ul>
 
-    <!-- Theme toggle -->
-    <button id="themeToggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
+    <!-- Cart -->
+    <button id="cartBtn" class="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cartCount">0</span></button>
 
-    <!-- Cart button -->
-    <button id="cartBtn" class="cart-btn">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="cartCount" class="cart-count">0</span>
+    <!-- Login/Profile -->
+    <div class="profile-container desktop-only">
+      <button id="profileIcon" class="login-icon"><i class="fas fa-user"></i></button>
+      <div class="profile-dropdown" id="profileDropdown">
+        <ul>
+          <li id="loginOption"><i class="fas fa-sign-in-alt"></i> Login</li>
+          <li id="signupOption"><i class="fas fa-user-plus"></i> Signup</li>
+          <li id="logoutOption"><i class="fas fa-sign-out-alt"></i> Logout</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ✅ Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle">
+      <i class="fas fa-adjust"></i>
     </button>
 
-  <!-- Desktop Buttons -->
-<div class="navbar-buttons desktop-only">
-  <button id="loginBtn" class="login-btn">
-      <i class="fas fa-user"></i> Login
-  </button>
-  <button id="showSignup" class="login-btn">
-      <i class="fas fa-user-plus"></i> Sign Up
-  </button>
-</div>
-    <!-- Hamburger Menu -->
+    <!-- Hamburger Menu (Mobile) -->
     <div class="hamburger" id="hamburger">
-        <span class="bar top"></span>
-        <span class="bar middle"></span>
-        <span class="bar bottom"></span>
+      <div class="bar top"></div>
+      <div class="bar middle"></div>
+      <div class="bar bottom"></div>
     </div>
+</div>
+
 </header>
 
-
-<!-- ===================== SIDEBAR (Mobile Menu) ===================== -->
-<div class="sidebar" id="sidebar">
-    <button class="close-btn" id="closeSidebar">&times;</button>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-    <hr>
-    <div class="sidebar-buttons">
-      <div class="sidebar-buttons mobile-only">
-        <button id="sidebarLoginBtn" class="login-btn">
-            <i class="fas fa-user"></i> Login
-        </button>
-        <button id="sidebarSignupBtn" class="signup-btn">
-            <i class="fas fa-user-plus"></i> Sign Up
-        </button>
-    </div>
-        <button id="sidebarTheme"><i class="fas fa-adjust"></i> Toggle Theme</button>
-        <button id="sidebarLogout" style="display:none;"><i class="fas fa-sign-out-alt"></i> Logout</button>
-    </div>
+<!-- Sidebar for Mobile -->
+<aside class="sidebar" id="sidebar">
+  <button class="close-btn" id="closeSidebar"><i class="fas fa-times"></i></button>
+  <ul>
+    <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+    <li><a href="#"><li class="fa-solid fa-bag-shopping"></li> Shop</a></li>
+    <li><a href="#"><i class="fa-solid fa-list"></i> Categories</a></li>
+    <li><a href="#"><i class="fa-solid fa-phone"></i> Contact</a></li>
+  </ul>
+  <button id="sidebarSearch" class="sidebar-search-btn">
+  <i class="fas fa-search"></i> Search Products
+</button>
+<div id="sidebarSearchContainer" class="sidebar-search-container">
+  <input type="text" id="sidebarSearchInput" placeholder="Type to search..." />
+  <button id="sidebarSearchGo"><i class="fas fa-arrow-right"></i></button>
 </div>
+  <div class="mobile-buttons">
+    <button id="sidebarLoginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+    <button id="sidebarSignupBtn"><i class="fas fa-user-plus"></i> Signup</button>
+    <button id="sidebarTheme"><i class="fas fa-adjust"></i> Toggle Theme</button>
+</div>
+</aside>
+
 
 
 <!-- ===================== CART SIDEBAR ===================== -->
@@ -114,7 +133,7 @@
       <input type="password" id="signupPassword" placeholder="Password" required>
       <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
       <button id="submitSignup">Sign Up</button>
-      <p>Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+      <p class="switch-to-login">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
   </div>
 </div>
 
@@ -130,13 +149,14 @@
         <h1>Discover Exclusive Devices and Gadgets</h1>
         <p>From Affordable choices to Brand New selections to get the best, use our buttons below</p>
         <div class="hero-buttons">
-          <a href="#" class="btn-primary">Shop Now</a>
+          <a href="#categories" class="btn-primary">Shop Now</a>
           <a href="#" class="btn-secondary">View Deals</a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="/logo.jpg" alt="Merch Banner">
+        <img id="heroSlide" src="images/iphones/iphone 16 black.png" alt="Hero Image">
       </div>
+
     </div>
 </section>
 
@@ -146,7 +166,17 @@
   <section id="categories">
     <h2>Shop by Category</h2>
     <div class="category-container">
-      <a href="#"><div class="category-card"><img src="/logo.jpg"><h3><i class="fas fa-mobile"></i> IPhones</h3></div></a>
+      <a href="#">
+<div class="category-card">
+  <div class="category-slideshow">
+    <img src="images/iphones/iphone 11 white.JPG" alt="iphones">
+    <img src="/images/iphones/iphone 13 green.JPG" alt="iphones">
+    <img src="/images/iphones/iphone 16 black.png" alt="iphones">
+  </div>
+  <h3><i class="fas fa-mobile"></i> Iphones</h3>
+</div>
+
+      </a>
       <a href="#"><div class="category-card"><img src="/logo.jpg"><h3><i class="fas fa-mobile"></i> Samsung & Others</h3></div></a>
       <a href="#"><div class="category-card"><img src="/logo.jpg"><h3><i class="fas fa-tablet-screen-button"></i> Ipads</h3></div></a>
       <a href="#"><div class="category-card"><img src="/logo.jpg"><h3><i class="fas fa-laptop"></i> Laptops</h3></div></a>
@@ -190,7 +220,6 @@
       </div>
     </div>
 </footer>
-
 <script src="script.js"></script>
 </body>
 </html>
