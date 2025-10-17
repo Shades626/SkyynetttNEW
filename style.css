@@ -1030,77 +1030,79 @@ main{
 /* =====================
    CATEGORY SLIDESHOW
 ===================== */
+/* ===================== CATEGORY SLIDESHOW ===================== */
+/* category slideshow base */
 .category-slideshow {
   position: relative;
   width: 100%;
-  height: 200px; /* adjust to your card size */
+  height: 220px;
   overflow: hidden;
   border-radius: 8px;
+  background: #f2f2f2;
 }
 
+/* all slides stacked */
 .category-slideshow img {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+  pointer-events: none;
 }
 
+/* visible slide */
 .category-slideshow img.active {
   opacity: 1;
-  z-index: 1;
+  pointer-events: auto;
 }
 
-/* Arrows */
-.cat-arrow {
+/* arrows */
+.category-slideshow .prev,
+.category-slideshow .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
   border: none;
-  padding: 0.5rem;
-  cursor: pointer;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  font-size: 1rem;
-  z-index: 2;
-  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  font-size: 18px;
+  line-height: 1;
 }
+.category-slideshow .prev { left: 8px; }
+.category-slideshow .next { right: 8px; }
+.category-slideshow .prev:hover,
+.category-slideshow .next:hover { background: rgba(0,0,0,0.7); }
 
-.cat-arrow:hover {
-  background: rgba(0,0,0,0.8);
-}
-
-.cat-prev { left: 10px; }
-.cat-next { right: 10px; }
-
-/* Dots */
-.cat-dots {
+/* dots */
+.category-slideshow .dots {
   position: absolute;
-  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
+  bottom: 8px;
   display: flex;
   gap: 6px;
-  z-index: 2;
+  z-index: 3;
 }
-
-.cat-dot {
-  width: 10px;
-  height: 10px;
+.category-slideshow .dot {
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.6);
-  border: none;
+  background: rgba(255,255,255,0.55);
   cursor: pointer;
-  transition: background 0.3s;
 }
+.category-slideshow .dot.active { background: #fff; }
 
-.cat-dot.active {
-  background: white;
-}
 
 /*Categories Media queries*/
 @media (max-width: 600px) {
