@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKYYNETT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="fontawesome.min.css">
+    <link rel="icon" type="image/png" href="skyynettlogo.png">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar">
+  <!-- Logo Section -->
+  <div class="logo">
+    <img src="skyynettlogo.png" alt="Logo">
+    <span class="brand-text">Skyynett</span>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links desktop-only">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Shop</a></li>
+    <li><a href="#">Categories</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <!-- Navbar Buttons -->
+  <div class="nav-buttons">
+    <!-- Search Icon -->
+    <div class="search-container desktop-only">
+      <button id="searchToggle" class="search-icon"><i class="fas fa-search"></i></button>
+      <div id="searchDropdown" class="search-dropdown">
+        <input type="text" id="searchInput" placeholder="Search..." />
+        <button id="searchBtn"><i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+  <!-- Cart -->
+  <button id="cartBtn" class="cart-btn"><i class="fas fa-cart-shopping" style="color: #000000;"></i></button>
+
+    <!-- Login/Profile -->
+    <!--div class="profile-container desktop-only">
+      <button id="profileIcon" class="login-icon"><i class="fas fa-user"></i></button>
+      <div class="profile-dropdown" id="profileDropdown">
+        <ul>
+          <li id="loginOption"><i class="fas fa-sign-in-alt"></i> Login</li>
+          <li id="signupOption"><i class="fas fa-user-plus"></i> Signup</li>
+          <li id="logoutOption"><i class="fas fa-sign-out-alt"></i> Logout</li>
+        </ul>
+      </div>
+    </div-->
+
+    <!-- ✅ Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle">
+      <i class="fas fa-adjust"></i>
+    </button>
+
+    <!-- Hamburger Menu (Mobile) -->
+    <div class="hamburger" id="hamburger">
+      <div class="bar top"></div>
+      <div class="bar middle"></div>
+      <div class="bar bottom"></div>
+    </div>
+</div>
+
+</header>
+
+<!-- Sidebar for Mobile -->
+<aside class="sidebar" id="sidebar">
+  <button class="close-btn" id="closeSidebar"><i class="fas fa-times"></i></button>
+  <ul>
+    <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+    <li><a href="#"><li class="fa-solid fa-bag-shopping"></li> Shop</a></li>
+    <li><a href="#"><i class="fa-solid fa-list"></i> Categories</a></li>
+    <li><a href="#"><i class="fa-solid fa-phone"></i> Contact</a></li>
+  </ul>
+  <button id="sidebarSearch" class="sidebar-search-btn">
+  <i class="fas fa-search"></i> Search Products
+</button>
+<div id="sidebarSearchContainer" class="sidebar-search-container">
+  <input type="text" id="sidebarSearchInput" placeholder="Type to search..." />
+  <button id="sidebarSearchGo"><i class="fas fa-arrow-right"></i></button>
+</div>
+  <div class="mobile-buttons">
+    <button id="sidebarLoginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+    <button id="sidebarSignupBtn"><i class="fas fa-user-plus"></i> Signup</button>
+    <button id="sidebarTheme"><i class="fas fa-adjust"></i> Toggle Theme</button>
+</div>
+</aside>
+
+
+
+<!-- ===================== CART SIDEBAR ===================== -->
+<div class="cart-sidebar" id="cartSidebar">
+    <button class="close-cart" id="closeCart">&times;</button>
+    <h2>Your Cart</h2>
+    <ul id="cartItems"></ul>
+    <div class="cart-footer">
+        <p>Total: $<span id="cartTotal">0.00</span></p>
+        <button id="checkoutBtn">Checkout</button>
+    </div>
+</div>
+
+
+<!-- ===================== LOGIN MODAL ===================== -->
+<div id="loginModal" class="login-modal">
+  <div class="login-box">
+      <span id="closeLogin" class="close-btn">&times;</span>
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button id="submitLogin">Login</button>
+      <p class="forgot-pass"><a href="#" id="forgotPassLink">Forgot Password?</a></p>
+      <div id="forgotPassForm" style="display:none;">
+          <input type="email" id="resetEmail" placeholder="Enter your email">
+          <button id="sendReset">Send Reset Link</button>
+      </div>
+  </div>
+</div>
+
+
+<!-- ===================== SIGN UP MODAL ===================== -->
+<div id="signupModal" class="login-modal">
+  <div class="login-box">
+      <span id="closeSignup" class="close-btn">&times;</span>
+      <h2>Create Account</h2>
+      <input type="text" id="signupUsername" placeholder="Username" required>
+      <input type="email" id="signupEmail" placeholder="Email" required>
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+      <button id="submitSignup">Sign Up</button>
+      <p class="switch-to-login">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+  </div>
+</div>
+
+
+<!-- ===================== OVERLAY ===================== -->
+<div class="overlay" id="overlay"></div>
+
+
+<!-- ===================== HERO SECTION ===================== -->
+<section class="hero-shopping">
+    <div class="hero-shopping-container">
+      <div class="hero-text">
+        <h1>Discover Exclusive Devices & Gadgets</h1>
+        <p>Find the best devices—affordable, refurbished, and brand-new selections. Click the button below to start shopping.</p>
+        <div class="hero-buttons">
+          <a href="#categories" class="btn-primary" role="button" aria-label="Shop Now">Shop Now</a>
+        </div>
+      </div>
+     
+
+    </div>
+</section>
+
+
+<!-- ===================== CATEGORY SECTION ===================== -->
+<main>
+  <section id="categories">
+    <h2>Explore Skyynett"s Top Products By Category</h2>
+    <div class="category-row-wrap">
+      <div class="category-container">
+
+<div class="category-card">
+    <img src="images/iphone2.png" alt="">
+    <h3> Iphones</h3>
+</div>
+
+<div class="category-card">
+    <img src="images/samsung.png" alt="">
+    <h3>Samsungs</h3>
+</div>
+
+<div class="category-card">
+    <img src="images/ipad.png" alt="">
+  <h3> Ipads</h3>
+</div>
+
+<div class="category-card">
+    <img src="images/laptops.png" alt="">
+  <h3>Laptops</h3>
+</div>
+
+<div class="category-card">
+    <img src="images/console-2-preview.png" alt="">
+  <h3>consoles</h3>
+</div>
+
+
+<div class="category-card">
+    <img src="images/smartwatch.png" alt="">
+   <h3> Smartwatch</h3>
+</div>
+
+  </section>
+</main>
+
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+    <div class="footer-overlay">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/logo.jpg" alt="Logo" />
+          <p>Quality, affordable gadgets you can trust</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" id="whatsapp-icon"><i class="fa-brands fa-whatsapp fa-beat"></i></a>
+          <a href="#" id="fb-icon"><i class="fa-brands fa-facebook fa-beat"></i></a>
+          <a href="#" id="insta-icon"><i class="fa-brands fa-instagram fa-beat"></i></a>
+        </div>
+        <div class="footer-extras">
+          <select id="languageSelect">
+            <option value="en">🌐 English</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="es">🇪🇸 Español</option>
+          </select>
+          <button id="backToTop"><i class="fa-solid fa-arrow-up"></i> Back to Top</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SKYYNETT. All rights reserved.</p>
+      </div>
+      </div>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
+

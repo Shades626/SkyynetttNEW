@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <!-- Profile Page -->
+<section class="profile-section">
+    <div class="profile-card">
+      <h2>👤 My Profile</h2>
+      <div class="profile-info">
+        <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+        <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+      </div>
+  
+      <button id="showChangePass" class="btn-primary">Change Password</button>
+      <button id="logoutProfile" class="btn-secondary">Logout</button>
+  
+      <!-- Change Password Form -->
+      <div id="changePassForm" style="display:none;">
+        <h3>Change Password</h3>
+        <input type="password" id="oldPassword" placeholder="Old Password" />
+        <input type="password" id="newPassword" placeholder="New Password" />
+        <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" />
+        <button id="updatePassword" class="btn-primary">Update Password</button>
+      </div>
+    </div>
+  </section>
+  
+  <script src="profile.js"></script>
+</body>
+</html>
