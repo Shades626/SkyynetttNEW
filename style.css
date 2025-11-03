@@ -9,6 +9,8 @@
 
 :root {
     --bg: #111;
+     --card-bg: #2e2e2e;
+    --card-hover-bg: #3f3f3f;
     --text: #fff;
     --accent: #00aaff;
     --nav-bg: #1a1a1a;
@@ -20,6 +22,9 @@
     --bg-dark: #1a1a1a;
     --transition: 0.4s ease;
     --navbar: rgb(79, 6, 148);
+  --card-border: rgba(255,255,255,0.06);
+  --edge-shadow-start: rgba(255,255,255,0.06);
+  --edge-shadow-end: rgba(255,255,255,0);
 }
 
 body.light-theme {
@@ -29,6 +34,11 @@ body.light-theme {
     --nav-bg: #ffffff;
     --sidebar-bg: #eeeeee;
     --navbar: rgb(20, 31, 180);
+  --card-bg: #e5e5e5;
+  --card-hover-bg: #ffffff;
+  --card-border: #ddd;
+  --edge-shadow-start: rgba(229,229,229,0.95);
+  --edge-shadow-end: rgba(229,229,229,0);
 }
 
 body {
@@ -371,111 +381,9 @@ body {
 }
 
 
-/* -------------------------------
- HERO SECTION (Original Styling Restored)
---------------------------------*/
-.hero-shopping {
-  background: var(--bg);
-  color: var(--text);
-  padding: 4rem 2rem;
-}
-
-.hero-shopping-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: auto;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.hero-text {
-  flex: 1;
-  min-width: 280px;
-}
-
-.hero-text h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.hero-text p {
-  font-size: 1.1rem;
-  margin-bottom: 1.8rem;
-  opacity: 0.9;
-  line-height: 1.6;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.hero-buttons a {
-  text-decoration: none;
-  background-color: var(--navbar);
-  border-radius: 10px;
-  width: 130px;
-  height: 50px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 0.9rem;
-  padding: 0.75rem 1.5rem;
-  color: var(--text);
-  transition: width 0.3s ease, background-color 0.3s ease;
-}
-
-.hero-buttons a:hover {
-  width: 150px;
-  background-color: var(--accent);
-  color: white;
-}
-
-.hero-image {
-  flex: 1;
-  min-width: 280px;
-  text-align: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-
-/* LOGIN & SIGNUP BUTTONS */
-.login-btn {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: background 0.3s ease;
-}
-
-.login-btn:hover {
-  background: #0099ff;
-}
+/* Hero styles consolidated later in this file to ensure a single source of truth
+   for the hero section (macbook background, buttons, overlay). See the
+   .hero-shopping definition near the end of this stylesheet. */
 
 .login-modal {
     position: fixed;
@@ -635,6 +543,56 @@ body {
   color: var(--accent);
   cursor: pointer;
 }
+
+/* Hero container + text/button adjustments */
+.hero-shopping-container{
+  display: flex;
+  align-items: center; /* vertical center */
+  justify-content: center; /* center the content horizontally */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  height: 420px;
+  padding: 1rem;
+}
+
+.hero-text{
+  flex: 1;
+  max-width: 780px;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.hero-text h1{
+  font-size: 2.6rem;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.hero-text p{
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+  opacity: 0.95;
+}
+
+.hero-buttons{
+  display: flex;
+  justify-content: center;
+}
+
+.hero-buttons .btn-primary{
+  background: var(--secondary);
+  color: var(--text-dark);
+  border-radius: 0;
+  padding: 0.95rem 2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  min-width: 220px;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
 
 /* ===============================
    PROFILE DROPDOWN
@@ -829,66 +787,8 @@ body:not(.light-theme) .brand-text {
 .mobile-buttons button:hover {
   background: var(--accent);
 }
-/* hero section*/
-
-.hero-shopping {
-  background: var(--bg);
-  color: var(--text);
-  padding: 4rem 2rem;
-}
-
-.hero-shopping-container{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: auto;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.hero-text {
-  flex: 1;
-  min-width: 280px;
-}
-
-.hero-text h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.hero-text p {
-  font-size: 1.1rem;
-  margin-bottom: 1.8rem;
-  opacity: 0.9;
-  line-height: 1.6;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.hero-buttons a {
-  text-decoration: none;
-  background-color: var(--navbar);
-  border-radius: 10px;
-  width: 130px;
-  height: 50px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 0.9rem;
-  padding: 0.75rem 1.5rem;
-  color: var(--text);
-  transition: width 0.3 ease, background-color 0.3 ease;
-}
-.hero-buttons a:hover{
-  width: 150px;
-  background-color: var(--accent);
-  color: white;
-}
+/* Duplicate hero section removed - consolidated hero styles live later
+   in this file (includes the macbook background and button styling). */
 .btn {
   padding: 0.75rem 1.5rem;
   font-weight: bold;
@@ -917,28 +817,7 @@ body:not(.light-theme) .brand-text {
   color: white;
 }
 
-/* For Hero Section Slideshow */
-.hero-image {
-  width: 100%;
-  max-width: 500px; /* Adjust width */
-  height: 350px;    /* Fixed height */
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-}
 
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  display: block;
-  animation: fade 1s ease-in-out;
-}
-
-@keyframes fade {
-  from {opacity: 0.4;}
-  to {opacity: 1;}
-}
 
 /*categories section*/
 header{
@@ -953,16 +832,17 @@ main{
 }
 
 #categories h2{
-  text-align: center;
+  text-align: left;
   margin-bottom: 1rem;
-  font-size: 1.8rem;
-  font-family: 'Segoe UI';
-  color: white;
+  color: var(--text);
   width: 100%;
-  background-color: var(--navbar);
   padding: 15px 30px;
   top: 0;
   z-index: 10;
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
 }
 .Products_h1{
   text-align: center;
@@ -977,131 +857,266 @@ main{
   z-index: 10;
 }
 
+/* Category container: horizontal scrolling row of cards. Cards stay on one line
+   and the user can scroll sideways when there are too many. */
 .category-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-direction: row;
   gap: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0.5rem 1rem 1.5rem 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
 }
-.category-card{
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  text-align: center;
-  padding: 1rem;
-  overflow: hidden;
+
+/* Hide native scrollbars but keep scrolling */
+.category-container{
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.category-container::-webkit-scrollbar{
+  display: none; /* Safari and Chrome */
+}
+
+/* Edge shadows to hint that the row is scrollable. We attach these to the
+   non-scrolling wrapper `.category-row-wrap` so they stay fixed while the
+   inner `.category-container` scrolls. */
+.category-row-wrap{
   position: relative;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.category-card:hover{
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  background:  linear-gradient(135deg, #f9f9f9, #e8f5e9);
-  cursor: pointer;
-}
-
-.category-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0; /* start shadows flush at the wrapper edge */
+  --category-card-w: 240px;
+  --category-card-h: 280px;
+  --category-slideshow-h: 170px; /* height of the image box inside each card */
 }
 
-.category-card:hover img {
-  transform: scale(1.1);
-}
-.category-card h3 {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-  color: black;
-  text-decoration: none;
-}
-.category-card:hover h3{
-  color: #4caf50;
-  cursor: pointer;
-}
-.category-card a{
-  text-decoration: none;
-}
-/* --- Category Slideshow --- */
-.category-card::before { pointer-events: none; } /* ensure hover overlay doesn't block controls */
-
-/* =====================
-   CATEGORY SLIDESHOW
-===================== */
-/* ===================== CATEGORY SLIDESHOW ===================== */
-/* category slideshow base */
-.category-slideshow {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #f2f2f2;
-}
-
-/* all slides stacked */
-.category-slideshow img {
+/* Shadows sized and positioned to match the category-card box. They sit
+   flush at the visible edges (left/right) of the wrapper so they don't move
+   when the inner container scrolls. Color matches the off-white card background. */
+.category-row-wrap::before,
+.category-row-wrap::after{
+  content: "";
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.7s ease-in-out;
+  top: 8px;
+  width: 20px;
+  height: 195px;
   pointer-events: none;
+  z-index: 4;
+  border-radius: 8px;
+
+}
+.category-row-wrap::before{
+  left: 0;
+  background: linear-gradient(90deg, var(--edge-shadow-start), var(--edge-shadow-end));
+}
+.category-row-wrap::after{
+  right: 0;
+  background: linear-gradient(270deg, var(--edge-shadow-start), var(--edge-shadow-end));
 }
 
-/* visible slide */
-.category-slideshow img.active {
-  opacity: 1;
-  pointer-events: auto;
+@media (max-width: 700px){
+  .category-row-wrap::before,
+  .category-row-wrap::after{ width: calc(var(--category-card-w) - 60px); }
 }
 
-/* arrows */
-.category-slideshow .prev,
-.category-slideshow .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.45);
-  color: #fff;
-  border: none;
-  width: 36px;
-  height: 36px;
+/* ===================== BEST SELLERS STYLES ===================== */
+.best-sellers{
+  padding: 2rem 1rem 3rem 1rem;
+  background: transparent;
+}
+.best-sellers h2{
+  max-width: 1200px;
+  margin: 0 auto 1rem auto;
+  color: var(--text);
+  font-size: 2rem;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0));
+  border-radius: 6px;
+}
+
+.best-sellers h2 i{ /* star or icon before the heading */
+  color: var(--primary);
+  font-size: 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+.product-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem; /* tighter spacing between cards */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0.75rem;
+}
+.product-card{
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0; /* remove rounded corners */
+  padding: 8px; /* tightened padding to reduce vertical space */
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center; /* center image inside card */
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.product-card:hover{ transform: translateY(-6px); box-shadow: 0 10px 24px rgba(0,0,0,0.12); }
+.product-image{
+  /* make the image container square like category cards while keeping the product-item smaller */
+  width: min(calc(var(--category-card-w) - 40px), 100%); /* slightly smaller than category card width */
+  aspect-ratio: 1 / 1; /* keep square */
+  overflow: hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 0;
+  background: transparent;
+}
+.product-image img{
+  /* center the product inside the square and keep it contained */
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+  display:block;
+}
+.product-item{ display: flex; flex-direction: column; gap: 6px; align-items: center; /* constrain product card width to make cards smaller */
+  max-width: 190px; /* smaller visual footprint */
+  margin: 0 auto;
+}
+.product-meta{ width: 100%; margin-top: 6px; display: flex; flex-direction: column; gap: 4px; align-items: flex-start; padding: 0 6px; }
+.product-title{ font-size: 0.9rem; margin: 0; color: var(--text-dark); line-height: 1.15; font-weight: 700; }
+.prod-desc{ display: none; }
+.prod-price{ font-weight: 800; color: var(--primary); margin-top: 4px; font-size: 0.92rem; }
+
+@media (max-width: 900px){
+  .product-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px){
+  .product-grid{ grid-template-columns: 1fr; }
+}
+
+/* MACBOOK BANNER
+   Full-width banner image that stops before the categories section
+===================== */
+.hero-shopping{
+  /* use macbook as the background behind the hero text */
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("images/macbook.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: var(--text);
+  padding: 4rem 2rem;
+}
+
+@media (max-width: 900px) {
+  .hero-shopping{ padding: 2rem 1rem; }
+}
+
+@media (max-width: 700px){
+  .hero-text h1{ font-size: 1.8rem; }
+  .hero-text p{ font-size: 0.95rem; }
+  .hero-shopping-container{ min-height: auto; }
+  .hero-buttons .btn-primary{ min-width: 180px; font-size: 1rem; }
+}
+
+.category-card{
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  text-align: center;
+  padding: 12px;
+  overflow: hidden;
+  width: 195px;
+  height: 195px;
+  flex: 0 0 240px; /* fixed card width to keep a straight line */
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  scroll-snap-align: start;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.category-card img{
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.SW{
+  padding-top: 10%;
+}
+
+.LP{
+  padding-top: 17%;
+}
+
+.category-card:hover{
+  background: var(--card-hover-bg);
+  cursor: pointer;
+}
+
+/* Image container inside card: ensure overflow hidden so scaled images don't escape */
+.category-slideshow{
+  overflow: hidden;
+  width: 100%;
+  height: var(--category-slideshow-h, 170px);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  z-index: 3;
-  font-size: 18px;
-  line-height: 1;
 }
-.category-slideshow .prev { left: 8px; }
-.category-slideshow .next { right: 8px; }
-.category-slideshow .prev:hover,
-.category-slideshow .next:hover { background: rgba(0,0,0,0.7); }
 
-/* dots */
-.category-slideshow .dots {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 8px;
-  display: flex;
-  gap: 6px;
-  z-index: 3;
+/* Image sizing and transition. On card hover we'll scale the image. */
+.category-slideshow img,
+.category-card img{
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.28s ease, opacity 0.2s ease;
+  transform-origin: center center;
 }
-.category-slideshow .dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.55);
-  cursor: pointer;
+
+/* Hover the whole card to grow the image */
+.category-card:hover .category-slideshow img,
+.category-card:hover img{
+  transform: scale(1.08);
 }
-.category-slideshow .dot.active { background: #fff; }
+.category-card h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--text-dark);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.25rem 0.25rem 0.5rem 0.25rem;
+}
+.category-card h3 a{ text-decoration: none; color: inherit; }
+.category-card a{
+  text-decoration: none;
+}
 
 
 /*Categories Media queries*/
@@ -1136,8 +1151,7 @@ main{
   background: linear-gradient(
       rgba(0, 0, 0, 0.7), 
       rgba(0, 0, 0, 0.7)
-    ),
-    url('your-background-image.jpg') no-repeat center center / cover;
+    );
   color: var(--text);
   padding: 2.5rem 1rem 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;

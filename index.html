@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKYYNETT</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="all.min.css">
-    <link rel="stylesheet" href="fontawesome.min.css">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="all.min.css">
+  <link rel="stylesheet" href="fontawesome.min.css">
+  <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="skyynettlogo.png">
 </head>
 <body>
@@ -32,18 +32,18 @@
   <div class="nav-buttons">
     <!-- Search Icon -->
     <div class="search-container desktop-only">
-      <button id="searchToggle" class="search-icon"><i class="fas fa-search"></i></button>
+  <button id="searchToggle" class="search-icon" aria-label="Open search"><i class="fas fa-search"></i></button>
       <div id="searchDropdown" class="search-dropdown">
         <input type="text" id="searchInput" placeholder="Search..." />
         <button id="searchBtn"><i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
 
-    <!-- Cart -->
-    <button id="cartBtn" class="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cartCount">0</span></button>
+  <!-- Cart -->
+  <button id="cartBtn" class="cart-btn"><i class="fas fa-cart-shopping"></i></button>
 
     <!-- Login/Profile -->
-    <div class="profile-container desktop-only">
+    <!--div class="profile-container desktop-only">
       <button id="profileIcon" class="login-icon"><i class="fas fa-user"></i></button>
       <div class="profile-dropdown" id="profileDropdown">
         <ul>
@@ -52,10 +52,10 @@
           <li id="logoutOption"><i class="fas fa-sign-out-alt"></i> Logout</li>
         </ul>
       </div>
-    </div>
+    </div-->
 
     <!-- ✅ Theme Toggle Button -->
-    <button id="themeToggle" class="theme-toggle">
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
       <i class="fas fa-adjust"></i>
     </button>
 
@@ -73,10 +73,10 @@
 <aside class="sidebar" id="sidebar">
   <button class="close-btn" id="closeSidebar"><i class="fas fa-times"></i></button>
   <ul>
-    <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
-    <li><a href="#"><li class="fa-solid fa-bag-shopping"></li> Shop</a></li>
-    <li><a href="#"><i class="fa-solid fa-list"></i> Categories</a></li>
-    <li><a href="#"><i class="fa-solid fa-phone"></i> Contact</a></li>
+  <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+  <li><a href="#"><i class="fa-solid fa-bag-shopping"></i> Shop</a></li>
+  <li><a href="#"><i class="fa-solid fa-list"></i> Categories</a></li>
+  <li><a href="#"><i class="fa-solid fa-phone"></i> Contact</a></li>
   </ul>
   <button id="sidebarSearch" class="sidebar-search-btn">
   <i class="fas fa-search"></i> Search Products
@@ -146,16 +146,13 @@
 <section class="hero-shopping">
     <div class="hero-shopping-container">
       <div class="hero-text">
-        <h1>Discover Exclusive Devices and Gadgets</h1>
-        <p>From Affordable choices to Brand New selections to get the best, use our buttons below</p>
+        <h1>Discover Exclusive Devices & Gadgets</h1>
+        <p>Find the best devices—affordable, refurbished, and brand-new selections. Click the button below to start shopping.</p>
         <div class="hero-buttons">
-          <a href="#categories" class="btn-primary">Shop Now</a>
-          <a href="#" class="btn-secondary">View Deals</a>
+          <a href="#categories" class="btn-primary" role="button" aria-label="Shop Now">Shop Now</a>
         </div>
       </div>
-      <div class="hero-image">
-        <img id="heroSlide" src="images/iphones/iphone 16 black.png" alt="Hero Image">
-      </div>
+     
 
     </div>
 </section>
@@ -164,56 +161,139 @@
 <!-- ===================== CATEGORY SECTION ===================== -->
 <main>
   <section id="categories">
-    <h2>Shop by Category</h2>
-    <div class="category-container">
+    <h2>Explore Skyynett"s Top Products By Category</h2>
+    <div class="category-row-wrap">
+      <div class="category-container">
+
 <div class="category-card">
-  <div class="category-slideshow" data-interval="2500">
-    <img src="images/iphones/iphone 11 white.JPG" alt="">
-    <img src="/images/iphones/iphone 13 green.JPG" alt="">
-    <img src="/images/iphones/iphone 15 group.png" alt="">
-  </div>
-  <h3><i class="fas fa-mobile-alt"></i> Iphones</h3>
+    <img src="images/iphone2.png" alt="">
+    <h3> Iphones</h3>
 </div>
+
 <div class="category-card">
-  <div class="category-slideshow" data-interval="2500">
-    <img src="images/samsungs/Samsung 1.jpg" alt="">
-    <img src="images/samsungs/Samsung 2.jpg" alt="">
-    <img src="images/samsungs/Samsung 3.jpg" alt="">
-  </div>
-  <h3><i class="fas fa-mobile-alt"></i> Samsungs</h3>
+    <img class="SW" src="images/samsung.png" alt="">
+    <h3>Samsungs</h3>
 </div>
-      <div class="category-card">
-  <div class="category-slideshow" data-interval="2500">
-    <img src="images/ipads/ipad 1.jpg" alt="">
-    <img src="images/ipads/ipad 2.jpg" alt="">
-    <img src="images/ipads/ipad 3.jpg" alt="">
-  </div>
-  <h3><i class="fas fa-tablet-alt"></i> Ipads</h3>
-</div>
+
 <div class="category-card">
-  <div class="category-slideshow" data-interval="2500">
-    <img src="images/laptops/HP 1030 G4.jpg" alt="">
-    <img src="images/laptops/Macbook pro 2021.jpg" alt="">
-    <img src="images/laptops/Dell xps 13.jpg" alt="">
-  </div>
-  <h3><i class="fas fa-mobile-alt"></i> Laptops</h3>
+    <img class="SW" src="images/ipad.png" alt="">
+  <h3> Ipads</h3>
 </div>
+
 <div class="category-card">
-  <div class="category-slideshow" data-interval="2500">
-    <img src="images/consoles/Nintendo Switch Oled.jpg" alt="">
-    <img src="images/consoles/ps5.jpg" alt="">
-    <img src="images/consoles/Xbox 1.jpg" alt="">
-  </div>
-  <h3><i class="fas fa-mobile-alt"></i> consoles</h3>
+    <img class="LP" src="images/laptops.png" alt="">
+  <h3>Laptops</h3>
 </div>
+
 <div class="category-card">
-  <div class="category-slideshow" data-interval="2500">
-    <img src="images/smart watches/Apple Watch.jpg" alt="">
-    <img src="images/smart watches/smart watch 2 watch or 7 patea.jpg" alt="">
-    <img src="images/smart watches/￼Apple Watch Série 9 Smartwatch ip68 Relógio À….jpg" alt="">
-  </div>
-  <h3><i class="fas fa-mobile-alt"></i> Smartwatch</h3>
+    <img src="images/console-2-preview.png" alt="">
+  <h3>consoles</h3>
 </div>
+
+
+<div class="category-card">
+    <img  class="SW" src="images/smartwatch.png" alt="">
+   <h3> Smartwatch</h3>
+</div>
+
+      </div> <!-- .category-container -->
+    </div> <!-- .category-row-wrap -->
+  </section>
+
+  <!-- ===================== BEST SELLERS ===================== -->
+  <section id="best-sellers" class="best-sellers">
+    <h2><i class="fa-solid fa-star"></i> Best Sellers</h2>
+    <div class="product-grid">
+      <div class="product-item">
+        <article class="product-card">
+          <div class="product-image"><img src="images/iphones/iphone 11 white.JPG" alt="iPhone 11 White"></div>
+        </article>
+        <div class="product-meta">
+          <h3 class="product-title">iPhone 11 — Refurbished, 64GB — Excellent condition.</h3>
+          <div class="prod-price">$249.00</div>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <article class="product-card">
+          <div class="product-image"><img src="images/iphones/iphone 13 green.JPG" alt="iPhone 13 Green"></div>
+        </article>
+        <div class="product-meta">
+          <h3 class="product-title">iPhone 13 — Brand new, 128GB (green).</h3>
+          <div class="prod-price">$599.00</div>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <article class="product-card">
+          <div class="product-image"><img src="images/iphones/iphone 15 group.png" alt="iPhone 15"></div>
+        </article>
+        <div class="product-meta">
+          <h3 class="product-title">iPhone 15 — Latest model, limited stock.</h3>
+          <div class="prod-price">$899.00</div>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <article class="product-card">
+          <div class="product-image"><img src="images/samsungs/Samsung 1.jpg" alt="Samsung Galaxy"></div>
+        </article>
+        <div class="product-meta">
+          <h3 class="product-title">Samsung Galaxy — High-performance Android phone.</h3>
+          <div class="prod-price">$399.00</div>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <article class="product-card">
+          <div class="product-image"><img src="images/ipads/ipad 1.jpg" alt="iPad"></div>
+        </article>
+        <div class="product-meta">
+          <h3 class="product-title">iPad — 10.2-inch, ideal for work and study.</h3>
+          <div class="prod-price">$329.00</div>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <article class="product-card">
+          <div class="product-image"><img src="images/laptops/Macbook pro 2021.jpg" alt="MacBook Pro 2021"></div>
+        </article>
+        <div class="product-meta">
+          <h3 class="product-title">MacBook Pro — Intel or Apple Silicon options.</h3>
+          <div class="prod-price">$1,199.00</div>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <article class="product-card">
+          <div class="product-image"><img src="images/consoles/ps5.jpg" alt="PlayStation 5"></div>
+        </article>
+        <div class="product-meta">
+          <h3 class="product-title">PlayStation 5 — Console bundle with controller.</h3>
+          <div class="prod-price">$499.00</div>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <article class="product-card">
+          <div class="product-image"><img src="images/smart watches/Apple Watch.jpg" alt="Apple Watch"></div>
+        </article>
+        <div class="product-meta">
+          <h3 class="product-title">Apple Watch — Series 9, fitness & health features.</h3>
+          <div class="prod-price">$279.00</div>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <article class="product-card">
+          <div class="product-image"><img src="images/laptops/Dell xps 13.jpg" alt="Dell XPS 13"></div>
+        </article>
+        <div class="product-meta">
+          <h3 class="product-title">Dell XPS 13 — Compact laptop for professionals.</h3>
+          <div class="prod-price">$999.00</div>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
@@ -249,6 +329,7 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 SKYYNETT. All rights reserved.</p>
+      </div>
       </div>
     </div>
 </footer>
