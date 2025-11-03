@@ -997,9 +997,46 @@ main{
   margin: 0 auto;
 }
 .product-meta{ width: 100%; margin-top: 6px; display: flex; flex-direction: column; gap: 4px; align-items: flex-start; padding: 0 6px; }
-.product-title{ font-size: 0.9rem; margin: 0; color: var(--text-dark); line-height: 1.15; font-weight: 700; }
+.product-title{
+  font-size: 0.95rem;
+  margin: 0;
+  color: var(--text);
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  /* clamp title to two lines with ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .prod-desc{ display: none; }
-.prod-price{ font-weight: 800; color: var(--primary); margin-top: 4px; font-size: 0.92rem; }
+.prod-price{
+  font-weight: 800;
+  color: var(--primary);
+  margin-top: 4px;
+  font-size: 0.95rem;
+  /* subtle pill for price to improve legibility */
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.04);
+}
+
+/* Light theme overrides for better readability on light backgrounds */
+body.light-theme .product-title{
+  color: var(--text-dark);
+}
+body.light-theme .prod-price{
+  background: rgba(0,0,0,0.03);
+}
+
+/* Small screens: slightly reduce title size to fit compact cards */
+@media (max-width: 600px){
+  .product-title{ font-size: 0.85rem; }
+  .prod-price{ font-size: 0.85rem; padding: 3px 6px; }
+}
 
 @media (max-width: 900px){
   .product-grid{ grid-template-columns: repeat(2, 1fr); }
@@ -1007,6 +1044,76 @@ main{
 @media (max-width: 600px){
   .product-grid{ grid-template-columns: 1fr; }
 }
+
+/* ===================== BEST SELLERS - DARK MODE POLISH ===================== */
+/* These rules only apply when NOT in light-theme (i.e., dark mode). They add
+   subtle glass/elevation, softer borders, and improved contrast for the
+   Best Sellers area without changing behavior in light mode. */
+body:not(.light-theme) .best-sellers{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0));
+}
+body:not(.light-theme) .best-sellers h2{
+  color: var(--text);
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+  padding: 0.65rem 0.85rem;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  border-radius: 8px;
+}
+body:not(.light-theme) .best-sellers h2 i{
+  background: linear-gradient(135deg, rgba(255,200,60,0.12), rgba(255,120,80,0.06));
+  color: #ffd98a; /* warm gold */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+body:not(.light-theme) .product-grid{
+  /* slightly tighter, denser look in dark mode */
+  gap: 0.45rem;
+}
+
+body:not(.light-theme) .product-item{ 
+  max-width: 180px; /* slightly compact in dark mode */
+}
+
+body:not(.light-theme) .product-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.06));
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.65);
+  transition: transform 0.22s cubic-bezier(.2,.9,.3,1), box-shadow 0.22s ease;
+}
+body:not(.light-theme) .product-card:hover{
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+body:not(.light-theme) .product-meta{
+  background: transparent;
+  padding: 2px 6px 6px 6px;
+}
+body:not(.light-theme) .product-title{
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+body:not(.light-theme) .prod-price{
+  color: var(--primary);
+  background: rgba(255,255,255,0.02);
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.2);
+}
+
+/* Ensure images keep a subtle drop shadow in dark mode to lift them from the background */
+body:not(.light-theme) .product-image img{
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
+}
+
+/* Increase contrast of heading and small touch-ups on narrow screens */
+@media (max-width: 700px){
+  body:not(.light-theme) .best-sellers h2{ padding: 0.45rem 0.6rem; font-size: 1.6rem; }
+  body:not(.light-theme) .product-item{ max-width: 100%; }
+}
+
 
 /* MACBOOK BANNER
    Full-width banner image that stops before the categories section
