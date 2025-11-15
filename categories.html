@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKYYNETT</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="all.min.css">
+  <link rel="stylesheet" href="fontawesome.min.css">
+  <link rel="stylesheet" href="categories.css">
+    <link rel="icon" type="image/png" href="skyynettlogo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/dist/tabler-icons.min.css">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar">
+  <!-- Logo Section -->
+  <div class="logo">
+    <img src="skyynettlogo.png" alt="Logo">
+    <span class="brand-text">Skyynett</span>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links desktop-only">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Shop</a></li>
+    <li><a href="#">Categories</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <!-- Navbar Buttons -->
+  <div class="nav-buttons">
+    <!-- Search Icon -->
+    <div class="search-container desktop-only">
+  <button id="searchToggle" class="search-icon" aria-label="Open search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg></button>
+      <div id="searchDropdown" class="search-dropdown">
+        <input type="text" id="searchInput" placeholder="Search..." />
+        <button id="searchBtn"><i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+  <!-- Cart -->
+  <button id="cartBtn" class="cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg></button>
+  
+  <!-- wishlist button -->
+   <button class="wishlist_nav_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg></button>
+
+    <!-- ✅ Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-sun"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
+    </button>
+
+    <!-- Hamburger Menu (Mobile) -->
+    <div class="hamburger" id="hamburger">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
+    </div>
+</div>
+
+</header>
+
+<!-- Sidebar for Mobile -->
+<aside class="sidebar" id="sidebar">
+  <button class="close-btn" id="closeSidebar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg></button>
+  <ul>
+  <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg> Home</a></li>
+  <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" /><path d="M9 11v-5a3 3 0 0 1 6 0v5" /></svg> Shop</a></li>
+  <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-category"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h6v6h-6z" /><path d="M14 4h6v6h-6z" /><path d="M4 14h6v6h-6z" /><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg> Categories</a></li>
+  <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-phone"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg> Contact</a></li>
+  </ul>
+  <button id="sidebarSearch" class="sidebar-search-btn">
+  <i class="fas fa-search"></i> Search Products
+</button>
+<div id="sidebarSearchContainer" class="sidebar-search-container">
+  <input type="text" id="sidebarSearchInput" placeholder="Type to search..." />
+  <button id="sidebarSearchGo"><i class="fas fa-arrow-right"></i></button>
+</div>
+  <div class="mobile-buttons">
+    <button id="signup_login_mobilenav_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg> Signup & Login</button>
+    <button id="wishlist_mobilenav_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg> Wishlist</button>
+    <button id="sidebarTheme"><i class="fas fa-adjust"></i> Toggle Theme</button>
+</div>
+</aside>
+
+
+
+<!-- ===================== CART SIDEBAR ===================== -->
+<div class="cart-sidebar" id="cartSidebar">
+    <button class="close-cart" id="closeCart">&times;</button>
+    <h2>Your Cart</h2>
+    <ul id="cartItems"></ul>
+    <div class="cart-footer">
+        <p>Total: $<span id="cartTotal">0.00</span></p>
+        <button id="checkoutBtn">Checkout</button>
+    </div>
+</div>
+<!-- ===================== OVERLAY ===================== -->
+<div class="overlay" id="overlay"></div>
+
+<button class="back-home" onclick="window.location.href='index.html'">← Back to Home</button>
+
+
+<section class="categories-page">
+<h1>Select a Category</h1>
+<div class="category-grid">
+<div class="category-card" data-category="iphones">
+  <div class="img-box"><img src="images/iphone2.png" alt="iPhones" /></div>
+  <h3>iPhones</h3>
+</div>
+<div class="category-card" data-category="samsung">
+  <div class="img-box"><img src="images/samsung.png" alt="Samsung" /></div>
+  <h3>Samsung Phones</h3>
+</div>
+<div class="category-card" data-category="ipads">
+  <div class="img-box"><img src="images/ipad.png" alt="iPads" /></div>
+  <h3>iPads</h3>
+</div>
+<div class="category-card" data-category="smartwatches">
+  <div class="img-box"><img src="images/smartwatch.png" alt="Smart Watches" /></div>
+  <h3>Smart Watches</h3>
+</div>
+<div class="category-card" data-category="gaming">
+  <div class="img-box"><img src="images/console-2-preview.png" alt="Gaming Consoles" /></div>
+  <h3>Gaming Consoles</h3>
+</div>
+<div class="category-card" data-category="laptops">
+  <div class="img-box"><img src="images/laptops.png" alt="Laptops" /></div>
+  <h3>Laptops</h3>
+</div>
+</div>
+</section>
+
+
+<section class="products-page hidden" id="productsPage">
+<button class="back-categories" id="backCategories">← Back</button>
+<h2 id="categoryTitle">Products</h2>
+<div class="product-grid" id="productGrid"></div>
+</section>
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+
+    <div class="footer-overlay">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/logo.jpg" alt="Logo" />
+          <p>Quality, affordable gadgets you can trust</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" id="whatsapp-icon"><i class="fa-brands fa-whatsapp fa-beat"></i></a>
+          <a href="#" id="fb-icon"><i class="fa-brands fa-facebook fa-beat"></i></a>
+          <a href="#" id="insta-icon"><i class="fa-brands fa-instagram fa-beat"></i></a>
+        </div>
+        <div class="footer-extras">
+          <select id="languageSelect">
+            <option value="en">🌐 English</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="es">🇪🇸 Español</option>
+          </select>
+          <button id="backToTop"><i class="fa-solid fa-arrow-up"></i> Back to Top</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SKYYNETT. All rights reserved.</p>
+      </div>
+      </div>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
