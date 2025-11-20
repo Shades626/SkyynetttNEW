@@ -15,6 +15,13 @@
 
 <!-- ===================== NAVBAR ===================== -->
 <header class="navbar">
+  <!-- Hamburger Menu (Mobile) -->
+  <div class="hamburger" id="hamburger">
+    <div class="bar top"></div>
+    <div class="bar middle"></div>
+    <div class="bar bottom"></div>
+  </div>
+
   <!-- Logo Section -->
   <div class="logo">
     <img src="skyynettlogo.png" alt="Logo">
@@ -23,9 +30,9 @@
 
   <!-- Navigation Links -->
   <ul class="nav-links desktop-only">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Shop</a></li>
-    <li><a href="#">Categories</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="categories.html">Categories</a></li>
     <li><a href="#">Contact</a></li>
   </ul>
 
@@ -33,56 +40,41 @@
   <div class="nav-buttons">
     <!-- Search Icon -->
     <div class="search-container desktop-only">
-  <button id="searchToggle" class="search-icon" aria-label="Open search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg></button>
+      <button id="searchToggle" class="search-icon" aria-label="Open search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg></button>
       <div id="searchDropdown" class="search-dropdown">
-        <input type="text" id="searchInput" placeholder="Search..." />
-        <button id="searchBtn"><i class="fas fa-arrow-right"></i></button>
+        <input type="text" id="searchInput" placeholder="Search products..." />
+        <button id="searchBtn" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-6 -6" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /></svg></button>
       </div>
     </div>
 
-  <!-- Cart -->
-  <button id="cartBtn" class="cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg></button>
-  
-  <!-- wishlist button -->
-   <button class="wishlist_nav_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg></button>
+    <!-- Cart -->
+    <button id="cartBtn" class="cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg></button>
+
+    <!-- Wishlist -->
+    <button class="wishlist_nav_btn" aria-label="Wishlist"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg></button>
 
     <!-- ✅ Theme Toggle Button -->
     <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-sun"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
+      <!-- Sun (visible in light theme) -->
+      <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="4"/><path d="M3 12h1m16 0h1M12 3v1m0 16v1M5 5l.7 .7m12.6 12.6l.7 .7M18.36 5.64l-.7 .7M6.34 18.36l-.7 .7"/></svg>
+      <!-- Moon (visible in dark theme) -->
+      <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
     </button>
-
-    <!-- Hamburger Menu (Mobile) -->
-    <div class="hamburger" id="hamburger">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
-    </div>
-</div>
+  </div>
 
 </header>
 
 <!-- Sidebar for Mobile -->
 <aside class="sidebar" id="sidebar">
-  <button class="close-btn" id="closeSidebar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg></button>
-  <ul>
-  <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg> Home</a></li>
-  <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" /><path d="M9 11v-5a3 3 0 0 1 6 0v5" /></svg> Shop</a></li>
-  <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-category"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h6v6h-6z" /><path d="M14 4h6v6h-6z" /><path d="M4 14h6v6h-6z" /><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg> Categories</a></li>
-  <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-phone"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg> Contact</a></li>
+  <ul class="sidebar-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="#">Contact</a></li>
   </ul>
-  <button id="sidebarSearch" class="sidebar-search-btn">
-  <i class="fas fa-search"></i> Search Products
-</button>
-<div id="sidebarSearchContainer" class="sidebar-search-container">
-  <input type="text" id="sidebarSearchInput" placeholder="Type to search..." />
-  <button id="sidebarSearchGo"><i class="fas fa-arrow-right"></i></button>
-</div>
-  <div class="mobile-buttons">
-    <button id="signup_login_mobilenav_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg> Signup & Login</button>
-    <button id="wishlist_mobilenav_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg> Wishlist</button>
-    <button id="sidebarTheme"><i class="fas fa-adjust"></i> Toggle Theme</button>
-</div>
+  <div class="sidebar-bottom">
+    <button id="wishlist_mobilenav_btn">Wishlist</button>
+  </div>
 </aside>
-
-
 
 <!-- ===================== CART SIDEBAR ===================== -->
 <div class="cart-sidebar" id="cartSidebar">
@@ -94,11 +86,7 @@
         <button id="checkoutBtn">Checkout</button>
     </div>
 </div>
-<!-- ===================== OVERLAY ===================== -->
 <div class="overlay" id="overlay"></div>
-
-<button class="back-home" onclick="window.location.href='index.html'">← Back to Home</button>
-
 
 <section class="categories-page">
 <h1>Select a Category</h1>
@@ -133,44 +121,100 @@
 
 <section class="products-page hidden" id="productsPage">
 <button class="back-categories" id="backCategories">← Back</button>
+
 <h2 id="categoryTitle">Products</h2>
 <div class="product-grid" id="productGrid"></div>
+
 </section>
+
+
+
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
+  <div class="footer-content-wrapper">
+    <!-- Footer Main Content -->
+    <div class="footer-main">
+      <!-- Brand Section -->
+      <div class="footer-brand">
+        <div class="footer-logo-section">
+          <img src="skyynettlogo.png" alt="Skyynett Logo" class="footer-logo-img">
+          <div>
+            <h3>Skyynett</h3>
+            <p>Quality, affordable gadgets you can trust</p>
+          </div>
+        </div>
+      </div>
 
-    <div class="footer-overlay">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="/logo.jpg" alt="Logo" />
-          <p>Quality, affordable gadgets you can trust</p>
-        </div>
-        <div class="footer-links">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
+      <!-- Quick Links -->
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <div class="footer-links-grid">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="categories.html">Categories</a>
+          <a href="#">About Us</a>
           <a href="#">Contact</a>
-        </div>
-        <div class="footer-social">
-          <a href="#" id="whatsapp-icon"><i class="fa-brands fa-whatsapp fa-beat"></i></a>
-          <a href="#" id="fb-icon"><i class="fa-brands fa-facebook fa-beat"></i></a>
-          <a href="#" id="insta-icon"><i class="fa-brands fa-instagram fa-beat"></i></a>
-        </div>
-        <div class="footer-extras">
-          <select id="languageSelect">
-            <option value="en">🌐 English</option>
-            <option value="fr">🇫🇷 Français</option>
-            <option value="es">🇪🇸 Español</option>
-          </select>
-          <button id="backToTop"><i class="fa-solid fa-arrow-up"></i> Back to Top</button>
+          <a href="#">Blog</a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 SKYYNETT. All rights reserved.</p>
+
+      <!-- Support Section -->
+      <div class="footer-column">
+        <h4>Support</h4>
+        <div class="footer-links-grid">
+          <a href="#">FAQ</a>
+          <a href="#">Shipping Info</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Help Center</a>
+        </div>
       </div>
+
+      <!-- Connect Section -->
+      <div class="footer-column">
+        <h4>Connect With Us</h4>
+        <div class="footer-social-icons">
+          <a href="#" id="whatsapp-icon" class="social-icon" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" id="fb-icon" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" id="insta-icon" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon" id="twitter-icon" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        </div>
       </div>
     </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p>&copy; 2025 Skyynett. All rights reserved.</p>
+      </div>
+      <div class="footer-bottom-right">
+        <button id="backToTop" class="back-to-top-btn" onclick="window.location.href='index.html'"><i class="fa-solid fa-arrow-up"></i> Back to Top</button>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<!-- ===================== BOTTOM NAV (MOBILE) ===================== -->
+<nav class="bottom-nav" id="bottomNav">
+  <a href="shop.html" class="bottom-nav-item" title="Shop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" /><path d="M9 11v-5a3 3 0 0 1 6 0v5" /></svg>
+    <span>Shop</span>
+  </a>
+  <a href="index.html" class="bottom-nav-item" title="Home">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7" /><path d="M9 22V12h6v10" /></svg>
+    <span>Home</span>
+  </a>
+  <a href="#" class="bottom-nav-item" id="bottomNavWishlist" title="Wishlist">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+    <span>Wishlist</span>
+  </a>
+  <a href="#" class="bottom-nav-item" id="bottomNavCart" title="Cart">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
+    <span>Cart</span>
+  </a>
+</nav>
+
 <script src="categories.js"></script>
 </body>
 </html>

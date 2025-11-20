@@ -66,12 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function applyTheme(theme) {
     if (theme === "light") {
       document.body.classList.add("light-theme");
-      if (themeToggle) themeToggle.innerHTML = `<i class="fas fa-sun"></i>`;
-      if (sidebarThemeBtn) sidebarThemeBtn.innerHTML = `<i class="fas fa-sun"></i> Toggle Theme`;
     } else {
       document.body.classList.remove("light-theme");
-      if (themeToggle) themeToggle.innerHTML = `<i class="fas fa-moon"></i>`;
-      if (sidebarThemeBtn) sidebarThemeBtn.innerHTML = `<i class="fas fa-moon"></i> Toggle Theme`;
     }
   }
   function initTheme() {
@@ -359,6 +355,175 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (err) {
       console.error("Error initializing slideshow for card index", sIndex, err);
     }
+  });
+
+  // =====================
+  // BEST SELLERS TOGGLE
+  // =====================
+  const productGrid = document.querySelector(".product-grid");
+  const toggleBtn = document.getElementById("toggleBestSellers");
+
+  if (toggleBtn && productGrid) {
+    toggleBtn.addEventListener("click", () => {
+      const isExpanded = productGrid.classList.contains("expanded");
+      
+      if (isExpanded) {
+        // Collapsing: add collapsing class for animation
+        productGrid.classList.add("collapsing");
+        
+        // After animation completes, remove expanded and collapsing classes
+        setTimeout(() => {
+          productGrid.classList.remove("expanded", "collapsing");
+          toggleBtn.classList.remove("expanded");
+          toggleBtn.classList.add("collapsed");
+          toggleBtn.setAttribute("aria-label", "Show more products");
+          toggleBtn.setAttribute("title", "Show more");
+        }, 600);
+      } else {
+        // Expanding: add expanded class for animation
+        productGrid.classList.add("expanded");
+        toggleBtn.classList.remove("collapsed");
+        toggleBtn.classList.add("expanded");
+        toggleBtn.setAttribute("aria-label", "Show less products");
+        toggleBtn.setAttribute("title", "Show less");
+      }
+    });
+  }
+
+  // =====================
+  // BEST SELLERS PRODUCT ACTIONS
+  // =====================
+  document.querySelectorAll(".product-card").forEach((card) => {
+    const cartIconBtn = card.querySelector(".cart-icon-btn");
+    const checkoutBtn = card.querySelector(".checkout-btn");
+    const nameEl = card.querySelector(".product-name");
+    const priceEl = card.querySelector(".prod-price");
+
+    if (cartIconBtn && nameEl && priceEl) {
+      // Cart icon: add to cart and change color
+      cartIconBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const productName = nameEl.textContent.trim();
+        const priceText = priceEl.textContent.replace(/[^\d.]/g, "");
+        const price = parseFloat(priceText) || 0;
+
+        // Add to cart
+        const existingItem = cart.find((p) => p.name === productName);
+        if (existingItem) {
+          existingItem.quantity++;
+        } else {
+          cart.push({ name: productName, price, quantity: 1 });
+        }
+        saveCart();
+
+        // Change icon color to accent (added state)
+        cartIconBtn.classList.add("added");
+        
+        // Reset after 2 seconds
+        setTimeout(() => {
+          cartIconBtn.classList.remove("added");
+        }, 2000);
+      });
+
+      // Checkout button: add to cart and open cart sidebar
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const productName = nameEl.textContent.trim();
+          const priceText = priceEl.textContent.replace(/[^\d.]/g, "");
+          const price = parseFloat(priceText) || 0;
+
+          // Add to cart
+          const existingItem = cart.find((p) => p.name === productName);
+          if (existingItem) {
+            existingItem.quantity++;
+          } else {
+            cart.push({ name: productName, price, quantity: 1 });
+          }
+          saveCart();
+
+          // Open cart sidebar
+          cartSidebar?.classList.add("open");
+          overlay?.classList.add("active");
+        });
+      }
+    }
+  });
+
+  // =====================
+  // BOTTOM NAV (MOBILE)
+  // =====================
+  const bottomNav = document.getElementById("bottomNav");
+  const bottomNavCart = document.getElementById("bottomNavCart");
+  const bottomNavWishlist = document.getElementById("bottomNavWishlist");
+
+  // Show bottom nav on mobile
+  function showBottomNavOnMobile() {
+    if (window.innerWidth <= 768) {
+      bottomNav?.classList.add("mobile-visible");
+    } else {
+      bottomNav?.classList.remove("mobile-visible");
+    }
+  }
+
+  showBottomNavOnMobile();
+  window.addEventListener("resize", showBottomNavOnMobile);
+
+  // Bottom nav cart button opens cart sidebar
+  if (bottomNavCart) {
+    bottomNavCart.addEventListener("click", (e) => {
+      e.preventDefault();
+      cartSidebar?.classList.add("open");
+      overlay?.classList.add("active");
+    });
+  }
+
+  // Bottom nav wishlist button (placeholder for wishlist functionality)
+  if (bottomNavWishlist) {
+    bottomNavWishlist.addEventListener("click", (e) => {
+      e.preventDefault();
+      // Add wishlist functionality here
+      console.log("Wishlist clicked");
+    });
+  }
+
+  // =====================
+  // AUTO-HIDE NAVBAR ON MOBILE (Scroll Down)
+  // =====================
+  const navbar = document.querySelector(".navbar");
+  let scrollTimeout;
+  let lastScrollPosition = 0;
+  let isNavbarVisible = true;
+
+  window.addEventListener("scroll", () => {
+    // Only auto-hide on mobile (max-width: 768px)
+    if (window.innerWidth > 768) return;
+
+    const currentScroll = window.scrollY;
+    const isScrollingDown = currentScroll > lastScrollPosition;
+
+    // Clear existing timeout
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+
+    // Show navbar when at top or scrolling up
+    if (currentScroll === 0 || !isScrollingDown) {
+      if (!isNavbarVisible) {
+        navbar?.classList.remove("hidden");
+        isNavbarVisible = true;
+      }
+    }
+
+    // Hide navbar after 2.5 seconds of inactivity when scrolled down
+    if (isScrollingDown && currentScroll > 0) {
+      scrollTimeout = setTimeout(() => {
+        if (isNavbarVisible) {
+          navbar?.classList.add("hidden");
+          isNavbarVisible = false;
+        }
+      }, 1500);
+    }
+
+    lastScrollPosition = currentScroll;
   });
 
   // End of DOMContentLoaded
