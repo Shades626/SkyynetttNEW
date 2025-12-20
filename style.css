@@ -755,60 +755,132 @@ body:not(.light-theme) #sidebarTheme .theme-icon.moon { display: inline; }
 /* Hero container + text/button adjustments */
 .hero-shopping-container{
   display: flex;
-  align-items: center; /* vertical center */
-  justify-content: center; /* center the content horizontally */
-  max-width: 1200px;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 1400px;
   margin: 0 auto;
-  gap: 2rem;
-  height: 420px;
-  padding: 1rem;
+  gap: 3rem;
+  min-height: 480px;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-text{
-  flex: 1;
-  max-width: 780px;
-  text-align: center;
+  flex: 0 0 500px;
+  max-width: 500px;
+  text-align: left;
   color: whitesmoke;
 }
 
-.hero-text h1{
-  font-size: 2.8rem;
-  line-height: 1.15;
-  font-weight: 700;
+.hero-badge {
+  display: inline-block;
+  background: rgba(0, 170, 255, 0.15);
+  border: 1px solid rgba(0, 170, 255, 0.3);
+  color: #00aaff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
   margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.hero-badge:hover {
+  background: rgba(0, 170, 255, 0.25);
+  border-color: rgba(0, 170, 255, 0.5);
+}
+
+.hero-text h1{
+  font-size: 3.2rem;
+  line-height: 1.25;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
   letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-text p{
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.92;
-  line-height: 1.6;
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  opacity: 0.88;
+  line-height: 1.8;
+  color: #cbd5e1;
 }
 
 .hero-buttons{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 1rem;
 }
 
 .hero-buttons .btn-primary{
-  background: var(--secondary);
-  color: var(--text-dark);
-  border-radius: 6px;
-  padding: 1rem 2.4rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  min-width: 220px;
+  background: linear-gradient(135deg, #00aaff 0%, #0088cc 100%);
+  color: #0f172a;
+  border-radius: 8px;
+  padding: 1.1rem 2.8rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  min-width: 200px;
   text-align: center;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 40px rgba(0, 170, 255, 0.3);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
   border: none;
   cursor: pointer;
+  letter-spacing: 0.5px;
 }
 .hero-buttons .btn-primary:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 28px 50px rgba(0, 170, 255, 0.4);
 }
+
+/* Hero Showcase - Single Featured Image */
+.hero-showcase {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  min-width: 400px;
+  padding-left: 120px;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+}
+
+.feature-photo {
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  border-radius: 24px;
+  object-fit: contain;
+  box-shadow: 0 25px 60px rgba(0, 170, 255, 0.2);
+  border: 1px solid rgba(0, 170, 255, 0.15);
+  transform: scale(1);
+  transition: transform 0.45s ease, box-shadow 0.45s ease, filter 0.45s ease;
+  display: block;
+  filter: drop-shadow(0 0 30px rgba(0, 170, 255, 0.08));
+}
+
+.feature-photo:hover {
+  transform: scale(1.04) translateY(-6px);
+  box-shadow: 0 35px 80px rgba(0, 170, 255, 0.3);
+  filter: drop-shadow(0 0 40px rgba(0, 170, 255, 0.15));
+}
+
+/* remove extra clutter: no badges or grid here */
+.showcase-info, .gadget-carousel, .gadget-item, .info-badge, .info-icon { display: none !important; }
 
 
 /* ===============================
@@ -1909,29 +1981,149 @@ body:not(.light-theme) .product-image img{
 }
 
 
-/* MACBOOK BANNER
-   Full-width banner image that stops before the categories section
+/* HERO BANNER - MODERN GRADIENT DESIGN
+   Professional gradient background with clean aesthetic
 ===================== */
 .hero-shopping{
-  /* use macbook as the background behind the hero text */
   width: 100%;
-  background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("images/macbook.jpeg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #0f4c75 75%, #1a3a52 100%);
+  position: relative;
+  overflow: hidden;
   color: var(--text);
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
+}
+
+/* Animated background elements for visual depth */
+.hero-shopping::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 170, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+/* Cascading text background layer */
+.hero-shopping::after {
+  content: 'SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETTSKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT SKYYNETT';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 150%;
+  height: 200%;
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  font-weight: 900;
+  color: rgba(0, 170, 255, 0.07);
+  transform: rotate(-15deg);
+  letter-spacing: 0.5rem;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(1.5px);
+  line-height: 1.8;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes textSlide {
+  0% { transform: rotate(-15deg) translateX(-100%) translateY(-20%); }
+  100% { transform: rotate(-15deg) translateX(100%) translateY(-20%); }
+}
+
+@media (max-width: 1024px) {
+  .hero-shopping-container {
+    flex-direction: column;
+    gap: 2rem;
+    min-height: auto;
+  }
+  
+  .hero-showcase {
+    width: 100%;
+  }
+  
+  .gadget-carousel {
+    max-width: 280px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 900px) {
-  .hero-shopping{ padding: 2rem 1rem; }
+  .hero-shopping{ padding: 3rem 1rem; }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 700px){
-  .hero-text h1{ font-size: 1.8rem; }
-  .hero-text p{ font-size: 0.95rem; }
-  .hero-shopping-container{ min-height: auto; }
-  .hero-buttons .btn-primary{ min-width: 180px; font-size: 1rem; }
+  .hero-shopping { padding: 2.5rem 1rem; }
+  
+  .hero-text h1{ 
+    font-size: 2rem; 
+  }
+  
+  .hero-text p{ 
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-text {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .hero-shopping-container{ 
+    min-height: auto; 
+  }
+  
+  .hero-buttons { 
+    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .hero-buttons .btn-primary{ 
+    min-width: auto;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  .hero-showcase {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image {
+    max-width: 350px;
+    margin: 0 auto;
+    padding-left: 0;
+  }
+
+  .feature-photo {
+    transform: scale(1);
+    border-radius: 18px;
+    max-height: 400px;
+  }
+
+  .hero-badge {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
 }
 
 .category-card{

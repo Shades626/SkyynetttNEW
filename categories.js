@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
           const prodRes = await fetch(`${API_URL}/products/category/${cat._id}`);
           const prods = prodRes.ok ? await prodRes.json() : [];
-          const mapped = prods.map(p => ({ name: p.title, price: `$${p.price}`, image: p.imageUrl || `images/${key}.png`, id: p._id }));
+          const mapped = prods.map(p => ({ name: p.title, price: `$${p.price}`, image: p.imageUrl || `images/${key}.png`, id: p._id, description: p.description || '' }));
           // If API supplied a category image, use it as the card image when no product image is available
           if (cat.imageUrl) {
             if (mapped.length === 0) mapped.push({ name: cat.name || key, price: '', image: cat.imageUrl });
@@ -243,6 +243,8 @@ document.addEventListener('DOMContentLoaded', () => {
       item.setAttribute('data-product-name', p.name || '');
       item.setAttribute('data-product-price', (priceNum || 0).toString());
       if (p.image) item.setAttribute('data-product-image', p.image);
+      // include product description if provided by admin/API so modal can display it
+      if (p.description) item.setAttribute('data-product-description', p.description);
       item.innerHTML = `
         <div class="img-box"><img src="${p.image}" alt="${p.name}"></div>
         <div class="product-meta">
@@ -289,6 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
           item.setAttribute('data-product-name', p.name || '');
           item.setAttribute('data-product-price', (priceNum || 0).toString());
           if (p.image) item.setAttribute('data-product-image', p.image);
+          if (p.description) item.setAttribute('data-product-description', p.description);
           item.innerHTML = `
             <div class="img-box"><img src="${p.image}" alt="${p.name}"></div>
             <div class="product-meta">
